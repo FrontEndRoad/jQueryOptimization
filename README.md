@@ -26,9 +26,7 @@
      //因为button已经有ID了，我们可以直接使用ID选择器。如下所示：
      var traffic_button = $("#traffic_button");
      
-     //当然 这只是对于单一的元素来讲。如果你需要选择多个元素，这必然会涉及到 DOM遍历和循环，
-     //为了提高性能，建议从最近的ID开始继承。
-     //如下所示：
+     //当然 这只是对于单一的元素来讲。如果你需要选择多个元素，这必然会涉及到DOM遍历和循环，为了提高性能，建议从最近的ID开始继承。如下所示：
      var traffic_lights = $("#traffic_light input");
 ```
 
@@ -36,9 +34,7 @@
 #### 二、在class前使用tag(标签名)
 
 ``` html
-<!-- 在jQuery中第二快的选择器是tag(标签)选择器( 比如：$("head") )。 -->
-<!-- 跟ID选择器累时，因为它来自原生的getElementsByTagName() 方法。-->
-<!-- 继续看刚才那段HTML代码：-->
+<!-- 在jQuery中第二快的选择器是tag(标签)选择器( 比如：$("head") )。跟ID选择器累时，因为它来自原生的getElementsByTagName() 方法。继续看刚才那段HTML代码： -->
 
 <div id="content"> 
 <form method="post" action="#"> 
@@ -55,8 +51,7 @@
 
 
 ``` javascript
-//比如需要选择 红绿 单选框，
-//那么可以使用一个tag name来限制(修饰)class ，如下所示：
+//比如需要选择 红绿 单选框，那么可以使用一个tag name来限制(修饰)class ，如下所示：
 var active_light = $("input.on");
 
 //当然也可以结合 就近的ID，如下所示：
@@ -66,20 +61,14 @@ var active_light = $("#traffic_light input.on");
 //（1） 不要使用tag来修饰ID，如下所示：
   var content = $("div#content");
   
-//这样一来，选择器会先遍历所有的div元素，然后匹配#content。
-//（好像jQuery从1.3.1开始改变了选择器核心后，不存在这个问题了。暂时无法考证。）
-
-//（2）不要画蛇添足的使用ID来修饰ID，如下所示：
+//这样一来，选择器会先遍历所有的div元素，然后匹配#content。（好像jQuery从1.3.1开始改变了选择器核心后，不存在这个问题了。暂时无法考证。）（2）不要画蛇添足的使用ID来修饰ID，如下所示：
   var traffic_light = $("#content #traffic_light");
  
 //注：如果使用属性选择器，也请尽量使用tag来修饰，如下所示：
 $('p[row="c3221"]').html();而不是这样：$('[row="c3221"]').html();
 
 //特别提示：
-//tag.class 的方式 在IE下的性能  好于 .class 方式。
-//但在Firefox下  却低于 直接 .class方式。
-//Google浏览器下两种都差不多。
-//我页面上有300个元素，他们的性能差距都在50毫秒以内。
+//tag.class 的方式 在IE下的性能好于.class方式。但在Firefox下却低于直接.class方式。Google浏览器下两种都差不多。我页面上有300个元素，他们的性能差距都在50毫秒以内。
 ```
 
 
