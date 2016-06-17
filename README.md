@@ -353,24 +353,14 @@ $(function(){
 
 ``` javascript
 $(function(){ 
-
     $("button").click(function(){ 
-
         if( $("p").data("flag") ){ 
-
             $("p").text("true"); 
-
             $("p").data("flag",false); 
-
         }else{
-
              $("p").text("false");
-
-             $("p").data("flag",true); 
-
+             $("p").data("flag",true);
         } 
-
     }); 
-
 })
 ```
